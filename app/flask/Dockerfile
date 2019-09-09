@@ -6,6 +6,8 @@ WORKDIR /app
 
 ADD . /app
 
+RUN pip install --upgrade pip
+
 RUN pip install -r requirements.txt
 
 RUN pip install uwsgi
