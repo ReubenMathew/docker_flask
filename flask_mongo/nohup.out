@@ -1,0 +1,393 @@
+NAME:
+   ngrok - tunnel local ports to public URLs and inspect traffic
+
+DESCRIPTION:
+    ngrok exposes local networked services behinds NATs and firewalls to the
+    public internet over a secure tunnel. Share local websites, build/test
+    webhook consumers and self-host personal services.
+    Detailed help for each command is available with 'ngrok help <command>'.
+    Open http://localhost:4040 for ngrok's web interface to inspect traffic.
+
+EXAMPLES:
+    ngrok http 80                    # secure public URL for port 80 web server
+    ngrok http -subdomain=baz 8080   # port 8080 available at baz.ngrok.io
+    ngrok http foo.dev:80            # tunnel to host:port instead of localhost
+    ngrok http https://localhost     # expose a local https server
+    ngrok tcp 22                     # tunnel arbitrary TCP traffic to port 22
+    ngrok tls -hostname=foo.com 443  # TLS traffic for foo.com to port 443
+    ngrok start foo bar baz          # start tunnels from the configuration file
+
+VERSION:
+   2.3.34
+
+AUTHOR:
+  inconshreveable - <alan@ngrok.com>
+
+COMMANDS:
+   authtoken	save authtoken to configuration file
+   credits	prints author and licensing information
+   http		start an HTTP tunnel
+   start	start tunnels by name from the configuration file
+   tcp		start a TCP tunnel
+   tls		start a TLS tunnel
+   update	update ngrok to the latest version
+   version	print the version string
+   help		Shows a list of commands or help for one command
+
+ERROR:  Unrecognized command: https
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 332-522-345
+127.0.0.1 - - [11/Sep/2019 19:25:20] "[1m[35mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 2463, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 2449, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1866, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/reuben/Desktop/GitHub/docker_flask/flask_mongo/app.py", line 22, in todo
+    items = [item for item in _items]
+  File "/home/reuben/Desktop/GitHub/docker_flask/flask_mongo/app.py", line 22, in <listcomp>
+    items = [item for item in _items]
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/cursor.py", line 1156, in next
+    if len(self.__data) or self._refresh():
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/cursor.py", line 1073, in _refresh
+    self.__send_message(q)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/cursor.py", line 955, in __send_message
+    address=self.__address)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1347, in _run_operation_with_response
+    exhaust=exhaust)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1459, in _retryable_read
+    exhaust=exhaust) as (sock_info,
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1283, in _slaveok_for_server
+    with self._get_socket(server, session, exhaust=exhaust) as sock_info:
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1223, in _get_socket
+    self.__all_credentials, checkout=exhaust) as sock_info:
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/pool.py", line 1128, in get_socket
+    sock_info.check_auth(all_credentials)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/pool.py", line 712, in check_auth
+    auth.authenticate(credentials, self)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/auth.py", line 564, in authenticate
+    auth_func(credentials, sock_info)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/auth.py", line 539, in _authenticate_default
+    return _authenticate_scram(credentials, sock_info, 'SCRAM-SHA-1')
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/auth.py", line 263, in _authenticate_scram
+    res = sock_info.command(source, cmd)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/pool.py", line 613, in command
+    user_fields=user_fields)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/network.py", line 167, in command
+    parse_write_concern_error=parse_write_concern_error)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/helpers.py", line 159, in _check_command_response
+    raise OperationFailure(msg % errmsg, code, response)
+pymongo.errors.OperationFailure: Authentication failed.
+127.0.0.1 - - [11/Sep/2019 19:25:21] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:25:21] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:25:21] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:25:21] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:25:21] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 332-522-345
+127.0.0.1 - - [11/Sep/2019 19:30:27] "[1m[35mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 2463, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 2449, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1866, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/reuben/Desktop/GitHub/docker_flask/flask_mongo/app.py", line 22, in todo
+    items = [item for item in _items]
+  File "/home/reuben/Desktop/GitHub/docker_flask/flask_mongo/app.py", line 22, in <listcomp>
+    items = [item for item in _items]
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/cursor.py", line 1156, in next
+    if len(self.__data) or self._refresh():
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/cursor.py", line 1073, in _refresh
+    self.__send_message(q)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/cursor.py", line 955, in __send_message
+    address=self.__address)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1347, in _run_operation_with_response
+    exhaust=exhaust)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1459, in _retryable_read
+    exhaust=exhaust) as (sock_info,
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1283, in _slaveok_for_server
+    with self._get_socket(server, session, exhaust=exhaust) as sock_info:
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1223, in _get_socket
+    self.__all_credentials, checkout=exhaust) as sock_info:
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/pool.py", line 1128, in get_socket
+    sock_info.check_auth(all_credentials)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/pool.py", line 712, in check_auth
+    auth.authenticate(credentials, self)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/auth.py", line 564, in authenticate
+    auth_func(credentials, sock_info)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/auth.py", line 539, in _authenticate_default
+    return _authenticate_scram(credentials, sock_info, 'SCRAM-SHA-1')
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/auth.py", line 263, in _authenticate_scram
+    res = sock_info.command(source, cmd)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/pool.py", line 613, in command
+    user_fields=user_fields)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/network.py", line 167, in command
+    parse_write_concern_error=parse_write_concern_error)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/helpers.py", line 159, in _check_command_response
+    raise OperationFailure(msg % errmsg, code, response)
+pymongo.errors.OperationFailure: Authentication failed.
+127.0.0.1 - - [11/Sep/2019 19:30:27] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:30:27] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:30:27] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:30:28] "[37mGET /?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:30:28] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:31:06] "[1m[35mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 2463, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 2449, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1866, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/reuben/Desktop/GitHub/docker_flask/flask_mongo/app.py", line 22, in todo
+    items = [item for item in _items]
+  File "/home/reuben/Desktop/GitHub/docker_flask/flask_mongo/app.py", line 22, in <listcomp>
+    items = [item for item in _items]
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/cursor.py", line 1156, in next
+    if len(self.__data) or self._refresh():
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/cursor.py", line 1073, in _refresh
+    self.__send_message(q)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/cursor.py", line 955, in __send_message
+    address=self.__address)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1347, in _run_operation_with_response
+    exhaust=exhaust)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1459, in _retryable_read
+    exhaust=exhaust) as (sock_info,
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1283, in _slaveok_for_server
+    with self._get_socket(server, session, exhaust=exhaust) as sock_info:
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1223, in _get_socket
+    self.__all_credentials, checkout=exhaust) as sock_info:
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/pool.py", line 1128, in get_socket
+    sock_info.check_auth(all_credentials)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/pool.py", line 712, in check_auth
+    auth.authenticate(credentials, self)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/auth.py", line 564, in authenticate
+    auth_func(credentials, sock_info)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/auth.py", line 539, in _authenticate_default
+    return _authenticate_scram(credentials, sock_info, 'SCRAM-SHA-1')
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/auth.py", line 263, in _authenticate_scram
+    res = sock_info.command(source, cmd)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/pool.py", line 613, in command
+    user_fields=user_fields)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/network.py", line 167, in command
+    parse_write_concern_error=parse_write_concern_error)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/helpers.py", line 159, in _check_command_response
+    raise OperationFailure(msg % errmsg, code, response)
+pymongo.errors.OperationFailure: Authentication failed.
+127.0.0.1 - - [11/Sep/2019 19:31:06] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:31:06] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:31:06] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:31:06] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:31:14] "[1m[35mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 2463, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 2449, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1866, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/reuben/Desktop/GitHub/docker_flask/flask_mongo/app.py", line 22, in todo
+    items = [item for item in _items]
+  File "/home/reuben/Desktop/GitHub/docker_flask/flask_mongo/app.py", line 22, in <listcomp>
+    items = [item for item in _items]
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/cursor.py", line 1156, in next
+    if len(self.__data) or self._refresh():
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/cursor.py", line 1073, in _refresh
+    self.__send_message(q)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/cursor.py", line 955, in __send_message
+    address=self.__address)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1347, in _run_operation_with_response
+    exhaust=exhaust)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1459, in _retryable_read
+    exhaust=exhaust) as (sock_info,
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1283, in _slaveok_for_server
+    with self._get_socket(server, session, exhaust=exhaust) as sock_info:
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1223, in _get_socket
+    self.__all_credentials, checkout=exhaust) as sock_info:
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/pool.py", line 1128, in get_socket
+    sock_info.check_auth(all_credentials)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/pool.py", line 712, in check_auth
+    auth.authenticate(credentials, self)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/auth.py", line 564, in authenticate
+    auth_func(credentials, sock_info)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/auth.py", line 539, in _authenticate_default
+    return _authenticate_scram(credentials, sock_info, 'SCRAM-SHA-1')
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/auth.py", line 263, in _authenticate_scram
+    res = sock_info.command(source, cmd)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/pool.py", line 613, in command
+    user_fields=user_fields)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/network.py", line 167, in command
+    parse_write_concern_error=parse_write_concern_error)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/helpers.py", line 159, in _check_command_response
+    raise OperationFailure(msg % errmsg, code, response)
+pymongo.errors.OperationFailure: Authentication failed.
+127.0.0.1 - - [11/Sep/2019 19:31:14] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:31:14] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:31:14] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:31:14] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:31:14] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:31:15] "[1m[35mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 2463, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 2449, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1866, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/reuben/Desktop/GitHub/docker_flask/flask_mongo/app.py", line 22, in todo
+    items = [item for item in _items]
+  File "/home/reuben/Desktop/GitHub/docker_flask/flask_mongo/app.py", line 22, in <listcomp>
+    items = [item for item in _items]
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/cursor.py", line 1156, in next
+    if len(self.__data) or self._refresh():
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/cursor.py", line 1073, in _refresh
+    self.__send_message(q)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/cursor.py", line 955, in __send_message
+    address=self.__address)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1347, in _run_operation_with_response
+    exhaust=exhaust)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1459, in _retryable_read
+    exhaust=exhaust) as (sock_info,
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1283, in _slaveok_for_server
+    with self._get_socket(server, session, exhaust=exhaust) as sock_info:
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/mongo_client.py", line 1223, in _get_socket
+    self.__all_credentials, checkout=exhaust) as sock_info:
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/contextlib.py", line 112, in __enter__
+    return next(self.gen)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/pool.py", line 1128, in get_socket
+    sock_info.check_auth(all_credentials)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/pool.py", line 712, in check_auth
+    auth.authenticate(credentials, self)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/auth.py", line 564, in authenticate
+    auth_func(credentials, sock_info)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/auth.py", line 539, in _authenticate_default
+    return _authenticate_scram(credentials, sock_info, 'SCRAM-SHA-1')
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/auth.py", line 263, in _authenticate_scram
+    res = sock_info.command(source, cmd)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/pool.py", line 613, in command
+    user_fields=user_fields)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/network.py", line 167, in command
+    parse_write_concern_error=parse_write_concern_error)
+  File "/home/reuben/anaconda3/envs/data/lib/python3.7/site-packages/pymongo/helpers.py", line 159, in _check_command_response
+    raise OperationFailure(msg % errmsg, code, response)
+pymongo.errors.OperationFailure: Authentication failed.
+127.0.0.1 - - [11/Sep/2019 19:31:16] "[37mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:31:16] "[37mGET /?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:31:16] "[37mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 200 -
+127.0.0.1 - - [11/Sep/2019 19:31:16] "[37mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 200 -
